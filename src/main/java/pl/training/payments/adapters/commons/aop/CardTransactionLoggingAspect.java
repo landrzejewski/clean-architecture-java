@@ -5,6 +5,7 @@ import org.aspectj.lang.annotation.*;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import pl.training.payments.domain.CardNumber;
+import pl.training.payments.domain.CardTransactionType;
 import pl.training.payments.domain.Money;
 
 import java.util.logging.Logger;
@@ -16,13 +17,13 @@ public final class CardTransactionLoggingAspect {
 
     private static final Logger log = Logger.getLogger(CardTransactionLoggingAspect.class.getName());
 
-    // @Pointcut("@annotation(pl.training.commons.annotations.Loggable)")
-    @Pointcut("execution(void pl.training.payments.application.AddCardTransactionService.*(pl.training.payments.domain.CardNumber, pl.training.payments.domain.Money))")
+    //@Pointcut("@annotation(pl.training.commons.annotations.EnableLogging)")
+    @Pointcut("execution(void pl.training.payments.application.AddCardTransactionService.addCardTransaction(pl.training.payments.domain.CardNumber, pl.training.payments.domain.Money, pl.training.payments.domain.CardTransactionType))")
     public void transaction() {
     }
 
-    @Before(value = "transaction() && args(cardNumber, amount)", argNames = "joinPoint,cardNumber,amount")
-    public void before(final JoinPoint joinPoint, final CardNumber cardNumber, final Money amount) {
+    @Before(value = "transaction() && args(cardNumber, amount, type)", argNames = "joinPoint,cardNumber,amount,type")
+    public void before(final JoinPoint joinPoint, final CardNumber cardNumber, final Money amount, final CardTransactionType type) {
         log.info("New transaction request for card: " + cardNumber);
     }
 
