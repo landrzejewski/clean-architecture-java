@@ -4,8 +4,8 @@ import org.springframework.core.annotation.Order;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import pl.training.payments.adapters.commons.web.ExceptionDto;
-import pl.training.payments.adapters.commons.web.RestExceptionResponseBuilder;
+import pl.training.payments.adapters.common.web.ExceptionDto;
+import pl.training.payments.adapters.common.web.RestExceptionResponseBuilder;
 import pl.training.payments.application.CardNotFoundException;
 
 import java.util.Locale;
