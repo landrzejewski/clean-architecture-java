@@ -23,7 +23,7 @@ public final class CardEntity {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(final String id) {
         this.id = id;
     }
 
@@ -31,7 +31,7 @@ public final class CardEntity {
         return number;
     }
 
-    public void setNumber(String number) {
+    public void setNumber(final String number) {
         this.number = number;
     }
 
@@ -39,7 +39,7 @@ public final class CardEntity {
         return expiration;
     }
 
-    public void setExpiration(LocalDate expiration) {
+    public void setExpiration(final LocalDate expiration) {
         this.expiration = expiration;
     }
 
@@ -47,7 +47,7 @@ public final class CardEntity {
         return currencyCode;
     }
 
-    public void setCurrencyCode(String currencyCode) {
+    public void setCurrencyCode(final String currencyCode) {
         this.currencyCode = currencyCode;
     }
 
@@ -55,7 +55,7 @@ public final class CardEntity {
         return transactions;
     }
 
-    public void setTransactions(String transactions) {
+    public void setTransactions(final String transactions) {
         this.transactions = transactions;
     }
 

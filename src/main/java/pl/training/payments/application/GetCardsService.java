@@ -8,11 +8,11 @@ import pl.training.payments.ports.input.GetCardsUseCase;
 import pl.training.payments.ports.output.CardQueries;
 
 @Atomic
-public class ReadCardsService implements GetCardsUseCase {
+public class GetCardsService implements GetCardsUseCase {
 
     private final CardQueries cardQueries;
 
-    public ReadCardsService(CardQueries cardQueries) {
+    public GetCardsService(final CardQueries cardQueries) {
         this.cardQueries = cardQueries;
     }
 

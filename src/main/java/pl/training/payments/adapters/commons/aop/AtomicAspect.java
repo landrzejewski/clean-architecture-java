@@ -11,7 +11,7 @@ import pl.training.commons.annotations.Atomic;
 
 @Aspect
 @Component
-public class AtomicAspect {
+public final class AtomicAspect {
 
     private final PlatformTransactionManager platformTransactionManager;
 

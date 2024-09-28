@@ -71,9 +71,10 @@ public final class Card {
 
     private void commit(final CardTransaction transaction) {
         transactions.add(transaction);
+        var amount = transaction.money();
         balance = switch (transaction.type()) {
-            case INFLOW -> balance.add(transaction.money());
-            case PAYMENT -> balance.subtract(transaction.money());
+            case INFLOW -> balance.add(amount);
+            case PAYMENT -> balance.subtract(amount);
         };
     }
 

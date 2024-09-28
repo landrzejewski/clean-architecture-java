@@ -6,23 +6,21 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
 import pl.training.Application;
-import pl.training.payments.CardTestFixtures;
 
 import static org.hamcrest.Matchers.closeTo;
 import static org.hamcrest.core.Is.is;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.DEFINED_PORT;
+import static org.springframework.http.MediaType.APPLICATION_JSON;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static pl.training.payments.CardTestFixtures.testCurrency;
-import static pl.training.payments.CardTestFixtures.testMoney;
+import static pl.training.payments.CardTestFixtures.*;
 
 @WithMockUser(roles = "ADMIN")
 @SpringBootTest(classes = Application.class, webEnvironment = DEFINED_PORT)
@@ -38,9 +36,11 @@ class AddCardTransactionUseCaseTest {
     @Transactional
     @Test
     void addInflowTransaction() throws Exception {
-        var cardEntity = CardTestFixtures.validCardEntity();
+        var cardEntity = validCardEntity();
         entityManager.persist(cardEntity);
         entityManager.flush();
+
+        var url = "/api/cards/" + cardEntity.getNumber() + "/transactions";
 
         String payload = """
                     {
@@ -50,9 +50,7 @@ class AddCardTransactionUseCaseTest {
                     }
                 """;
 
-        var url = "/api/cards/" + cardEntity.getNumber() + "/transactions";
-
-        mockMvc.perform(post(url).contentType(MediaType.APPLICATION_JSON).content(payload))
+        mockMvc.perform(post(url).contentType(APPLICATION_JSON).content(payload))
                 .andExpect(status().isNoContent());
         mockMvc.perform(get(url))
                 .andExpect(status().isOk())

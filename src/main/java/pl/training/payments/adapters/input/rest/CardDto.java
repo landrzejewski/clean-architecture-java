@@ -13,7 +13,7 @@ public final class CardDto {
         return number;
     }
 
-    public void setNumber(String number) {
+    public void setNumber(final String number) {
         this.number = number;
     }
 
@@ -21,7 +21,7 @@ public final class CardDto {
         return expiration;
     }
 
-    public void setExpiration(LocalDate expiration) {
+    public void setExpiration(final LocalDate expiration) {
         this.expiration = expiration;
     }
 
@@ -29,7 +29,7 @@ public final class CardDto {
         return balance;
     }
 
-    public void setBalance(Double balance) {
+    public void setBalance(final Double balance) {
         this.balance = balance;
     }
 
@@ -37,7 +37,7 @@ public final class CardDto {
         return currencyCode;
     }
 
-    public void setCurrencyCode(String currencyCode) {
+    public void setCurrencyCode(final String currencyCode) {
         this.currencyCode = currencyCode;
     }
 

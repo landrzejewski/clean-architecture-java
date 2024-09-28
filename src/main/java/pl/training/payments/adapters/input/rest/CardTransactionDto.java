@@ -13,7 +13,7 @@ public final class CardTransactionDto {
         return amount;
     }
 
-    public void setAmount(Double amount) {
+    public void setAmount(final Double amount) {
         this.amount = amount;
     }
 
@@ -21,7 +21,7 @@ public final class CardTransactionDto {
         return currencyCode;
     }
 
-    public void setCurrencyCode(String currencyCode) {
+    public void setCurrencyCode(final String currencyCode) {
         this.currencyCode = currencyCode;
     }
 
@@ -29,7 +29,7 @@ public final class CardTransactionDto {
         return type;
     }
 
-    public void setType(CardTransactionTypeDto type) {
+    public void setType(final CardTransactionTypeDto type) {
         this.type = type;
     }
 
@@ -37,7 +37,7 @@ public final class CardTransactionDto {
         return timestamp;
     }
 
-    public void setTimestamp(Instant timestamp) {
+    public void setTimestamp(final Instant timestamp) {
         this.timestamp = timestamp;
     }
 

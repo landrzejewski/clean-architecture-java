@@ -8,11 +8,11 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import pl.training.payments.CardTestFixtures;
 import pl.training.payments.adapters.output.persistence.SpringDataJpaCardRepository;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace.NONE;
+import static pl.training.payments.CardTestFixtures.validCardEntity;
 
 @ActiveProfiles("test")
 @AutoConfigureTestDatabase(replace = NONE)
@@ -28,7 +28,7 @@ class SpringDataJpaCardRepositoryTest {
 
     @Test
     void given_card_exists_when_find_by_id_should_return_card() {
-        var cardEntity = CardTestFixtures.validCardEntity();
+        var cardEntity = validCardEntity();
         entityManager.persist(cardEntity);
         entityManager.flush();
         assertEquals(cardEntity, repository.findByNumber(cardEntity.getNumber()).get());

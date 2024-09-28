@@ -1,6 +1,6 @@
 package pl.training.payments.domain;
 
-public class DefaultCardNumberGeneratorFactory implements CardNumberGeneratorFactory {
+public final class DefaultCardNumberGeneratorFactory implements CardNumberGeneratorFactory {
 
     @Override
     public CardNumberGenerator get() {

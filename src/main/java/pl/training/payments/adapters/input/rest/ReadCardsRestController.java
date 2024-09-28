@@ -15,8 +15,8 @@ public final class ReadCardsRestController {
     private final GetCardsUseCase getCardsUseCase;
     private final CardRestMapper mapper;
 
-    public ReadCardsRestController(final GetCardsUseCase readCards, final CardRestMapper mapper) {
-        this.getCardsUseCase = readCards;
+    public ReadCardsRestController(final GetCardsUseCase getCardsUseCase, final CardRestMapper mapper) {
+        this.getCardsUseCase = getCardsUseCase;
         this.mapper = mapper;
     }
 

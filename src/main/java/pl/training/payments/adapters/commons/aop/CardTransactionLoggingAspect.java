@@ -12,34 +12,34 @@ import java.util.logging.Logger;
 @Order(10000)
 @Aspect
 @Component
-public class CardTransactionLoggingAspect {
+public final class CardTransactionLoggingAspect {
 
     private static final Logger log = Logger.getLogger(CardTransactionLoggingAspect.class.getName());
 
     // @Pointcut("@annotation(pl.training.commons.annotations.Loggable)")
     @Pointcut("execution(void pl.training.payments.application.AddCardTransactionService.*(pl.training.payments.domain.CardNumber, pl.training.payments.domain.Money))")
-    public void payment() {
+    public void transaction() {
     }
 
-    @Before(value = "payment() && args(cardNumber, amount)", argNames = "joinPoint,cardNumber,amount")
-    public void before(JoinPoint joinPoint, CardNumber cardNumber, Money amount) {
-        log.info("New payment request for card: " + cardNumber);
+    @Before(value = "transaction() && args(cardNumber, amount)", argNames = "joinPoint,cardNumber,amount")
+    public void before(final JoinPoint joinPoint, final CardNumber cardNumber, final Money amount) {
+        log.info("New transaction request for card: " + cardNumber);
     }
 
-    @AfterReturning(value = "payment()")
+    @AfterReturning(value = "transaction()")
     public void onSuccess() {
-        log.info("Payment successful");
+        log.info("Transaction successful");
     }
 
-    @AfterThrowing(value = "payment()", throwing = "runtimeException")
-    public void onFailure(JoinPoint joinPoint, RuntimeException runtimeException) {
-        log.info("Payment failed with exception: " + runtimeException.getClass().getSimpleName() +
+    @AfterThrowing(value = "transaction()", throwing = "runtimeException")
+    public void onFailure(final JoinPoint joinPoint, final RuntimeException runtimeException) {
+        log.info("Transaction failed with exception: " + runtimeException.getClass().getSimpleName() +
                 " (method: " + joinPoint.getSignature() + ")");
     }
 
-    @After("payment()")
-    public void afterCharge() {
-        log.info("Payment processing complete");
+    @After("transaction()")
+    public void onComplete() {
+        log.info("Transaction processing complete");
     }
 
 }

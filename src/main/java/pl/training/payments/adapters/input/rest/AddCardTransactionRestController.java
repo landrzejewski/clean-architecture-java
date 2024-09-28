@@ -12,13 +12,13 @@ public final class AddCardTransactionRestController {
     private final AddCardTransactionUseCase addCardTransactionUseCase;
     private final CardRestMapper mapper;
 
-    public AddCardTransactionRestController(final AddCardTransactionUseCase addCardTransaction, final CardRestMapper mapper) {
-        this.addCardTransactionUseCase = addCardTransaction;
+    public AddCardTransactionRestController(final AddCardTransactionUseCase addCardTransactionUseCase, final CardRestMapper mapper) {
+        this.addCardTransactionUseCase = addCardTransactionUseCase;
         this.mapper = mapper;
     }
 
     @PostMapping("{number:\\d{16,19}}/transactions")
-    public ResponseEntity<Void> addTransaction(
+    public ResponseEntity<Void> addCardTransaction(
             @PathVariable final String number,
             @Validated @RequestBody final CardTransactionRequestDto cardTransactionRequestDto) {
         var cardNumber = mapper.toDomain(number);

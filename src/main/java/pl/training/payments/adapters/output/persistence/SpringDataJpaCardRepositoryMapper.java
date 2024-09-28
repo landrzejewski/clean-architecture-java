@@ -31,11 +31,19 @@ public final class SpringDataJpaCardRepositoryMapper {
     public CardEntity toEntity(final Card card) {
         var cardEntity = new CardEntity();
         cardEntity.setId(card.getId().value());
-        cardEntity.setNumber(card.getNumber().value());
+        cardEntity.setNumber(toEntity(card.getNumber()));
         cardEntity.setExpiration(card.getExpiration());
         cardEntity.setCurrencyCode(card.getCurrency().getCurrencyCode());
         cardEntity.setTransactions(toJson(card.registeredTransactions()));
         return cardEntity;
+    }
+
+    public String toEntity(final CardNumber cardNumber) {
+        return cardNumber.value();
+    }
+
+    public PageRequest toEntity(final PageSpec pageSpec) {
+        return PageRequest.of(pageSpec.index(), pageSpec.size());
     }
 
     public Card toDomain(final CardEntity cardEntity) {
@@ -48,10 +56,6 @@ public final class SpringDataJpaCardRepositoryMapper {
             fromJson(cardEntity.getTransactions()).forEach(card::registerTransaction);
         }
         return card;
-    }
-
-    public PageRequest toEntity(final PageSpec pageSpec) {
-        return PageRequest.of(pageSpec.index(), pageSpec.size());
     }
 
     public ResultPage<Card> toDomain(final Page<CardEntity> page) {

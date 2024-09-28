@@ -7,11 +7,11 @@ import pl.training.payments.ports.input.GetCardUseCase;
 import pl.training.payments.ports.output.CardQueries;
 
 @Atomic
-public class ReadCardService implements GetCardUseCase {
+public class GetCardService implements GetCardUseCase {
 
     private final CardQueries cardQueries;
 
-    public ReadCardService(CardQueries cardQueries) {
+    public GetCardService(final CardQueries cardQueries) {
         this.cardQueries = cardQueries;
     }
 

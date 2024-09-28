@@ -32,7 +32,7 @@ public final class CacheAspect implements MethodInterceptor {
     }
 
     private String calculateKey(final MethodInvocation invocation) {
-        return invocation.getMethod().getName() + Arrays.stream(invocation.getArguments())
+        return Arrays.stream(invocation.getArguments())
                 .map(Object::toString)
                 .collect(joining());
     }

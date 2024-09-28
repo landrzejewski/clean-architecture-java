@@ -11,7 +11,7 @@ import pl.training.payments.ports.output.CardQueries;
 import java.util.Optional;
 
 @Adapter
-public class SpringDataJpaCardRepositoryAdapter implements CardQueries, CardOperations {
+public final class SpringDataJpaCardRepositoryAdapter implements CardQueries, CardOperations {
 
     private final SpringDataJpaCardRepository repository;
     private final SpringDataJpaCardRepositoryMapper mapper;
@@ -30,7 +30,7 @@ public class SpringDataJpaCardRepositoryAdapter implements CardQueries, CardOper
 
     @Override
     public Optional<Card> findByNumber(final CardNumber cardNumber) {
-        return repository.findByNumber(cardNumber.value())
+        return repository.findByNumber(mapper.toEntity(cardNumber))
                 .map(mapper::toDomain);
     }
 

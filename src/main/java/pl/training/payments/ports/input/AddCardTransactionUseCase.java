@@ -6,6 +6,6 @@ import pl.training.payments.domain.Money;
 
 public interface AddCardTransactionUseCase {
 
-    void addCardTransaction(CardNumber cardNumber, final Money amount, CardTransactionType cardTransactionType);
+    void addCardTransaction(CardNumber cardNumber, Money amount, CardTransactionType cardTransactionType);
 
 }

@@ -4,7 +4,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 
-public class LocationUri {
+public final class LocationUri {
 
     private static final String SEGMENT_SEPARATOR = "/";
 

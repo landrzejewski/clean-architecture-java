@@ -14,7 +14,7 @@ import static pl.training.commons.annotations.Timer.TimeUnit.NS;
 // @Order(100_000)
 @Aspect
 @Component
-public class TimerAspect implements Ordered {
+public final class TimerAspect implements Ordered {
 
     private static final Logger LOGGER = Logger.getLogger(TimerAspect.class.getName());
 
