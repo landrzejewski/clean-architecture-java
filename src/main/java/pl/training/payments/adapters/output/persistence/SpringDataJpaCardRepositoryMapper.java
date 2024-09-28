@@ -25,7 +25,7 @@ public final class SpringDataJpaCardRepositoryMapper {
     private final static ObjectMapper JSON_MAPPER = new ObjectMapper()
             .registerModule(new JavaTimeModule())
             .configure(FAIL_ON_UNKNOWN_PROPERTIES, false);
-    private final static TypeReference<List<CardTransaction>> TRANSACTION_LIST_TYPE = new TypeReference<List<CardTransaction>>() {
+    private final static TypeReference<List<CardTransaction>> TRANSACTION_LIST_TYPE = new TypeReference<>() {
     };
 
     public CardEntity toEntity(final Card card) {
@@ -44,7 +44,9 @@ public final class SpringDataJpaCardRepositoryMapper {
         var currency = Currency.getInstance(cardEntity.getCurrencyCode());
         var expiration = cardEntity.getExpiration();
         var card = new Card(cardId, cardNumber, expiration, currency);
-        fromJson(cardEntity.getTransactions()).forEach(card::registerTransaction);
+        if (cardEntity.getTransactions() != null) {
+            fromJson(cardEntity.getTransactions()).forEach(card::registerTransaction);
+        }
         return card;
     }
 

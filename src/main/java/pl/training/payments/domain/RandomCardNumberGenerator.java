@@ -2,7 +2,7 @@ package pl.training.payments.domain;
 
 import java.util.Random;
 
-public final class RandomCardNumberGenerator implements CardNumberGenerator {
+final class RandomCardNumberGenerator implements CardNumberGenerator {
 
     private final Random random = new Random();
     private final int length;

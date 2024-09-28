@@ -7,14 +7,14 @@ import pl.training.payments.application.AddCardTransactionService;
 import pl.training.payments.application.ReadCardService;
 import pl.training.payments.application.ReadCardsService;
 import pl.training.payments.domain.CardNumberGenerator;
-import pl.training.payments.domain.RandomCardNumberGenerator;
+import pl.training.payments.domain.DefaultCardNumberGeneratorFactory;
 import pl.training.payments.ports.input.AddCardTransactionUseCase;
 import pl.training.payments.ports.input.AddCardUseCase;
 import pl.training.payments.ports.input.GetCardUseCase;
 import pl.training.payments.ports.input.GetCardsUseCase;
 import pl.training.payments.ports.output.CardEventPublisher;
-import pl.training.payments.ports.output.CardQueries;
 import pl.training.payments.ports.output.CardOperations;
+import pl.training.payments.ports.output.CardQueries;
 import pl.training.payments.ports.output.DateTimeProvider;
 
 @Configuration
@@ -27,7 +27,7 @@ public class PaymentsConfiguration {
 
     @Bean
     public CardNumberGenerator cardNumberGenerator() {
-        return new RandomCardNumberGenerator(16);
+        return new DefaultCardNumberGeneratorFactory().get();
     }
 
     @Bean

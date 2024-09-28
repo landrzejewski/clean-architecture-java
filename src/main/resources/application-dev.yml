@@ -4,5 +4,5 @@ spring:
     driver-class-name: org.h2.Driver
   h2:
     console:
-      path: h2
+      path: /h2
       enabled: true

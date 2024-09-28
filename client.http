@@ -12,25 +12,25 @@ Authorization: Basic YWRtaW46YWRtaW4=
 %}
 
 ###
-POST http://localhost:8080/api/cards/{{number}}/operations
+POST http://localhost:8080/api/cards/{{number}}/transactions
 Accept: application/json
 Content-Type: application/json
 Authorization: Basic YWRtaW46YWRtaW4=
 
 {
-  "operationType": "INPUT",
+  "type": "IN",
   "amount": 200,
   "currencyCode": "PLN"
 }
 
 ###
-POST http://localhost:8080/api/cards/{{number}}/operations
+POST http://localhost:8080/api/cards/{{number}}/transactions
 Accept: application/json
 Content-Type: application/json
 Authorization: Basic YWRtaW46YWRtaW4=
 
 {
-  "operationType": "OUTPUT",
+  "type": "OUT",
   "amount": 100.0,
   "currencyCode": "PLN"
 }
@@ -48,7 +48,7 @@ Content-Type: application/json
 Authorization: Basic YWRtaW46YWRtaW4=
 
 ###
-GET http://localhost:8080/api/cards/{{number}}/operations
+GET http://localhost:8080/api/cards/{{number}}/transactions
 Accept: application/json
 Content-Type: application/json
 Authorization: Basic YWRtaW46YWRtaW4=

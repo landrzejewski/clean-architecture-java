@@ -64,15 +64,15 @@ public class CardRestMapper {
 
     public CardTransactionTypeDto toDto(final CardTransactionType cardTransactionType) {
         return switch (cardTransactionType) {
-            case INFLOW -> CardTransactionTypeDto.INPUT;
-            case PAYMENT -> CardTransactionTypeDto.OUTPUT;
+            case INFLOW -> CardTransactionTypeDto.IN;
+            case PAYMENT -> CardTransactionTypeDto.OUT;
         };
     }
 
-    public CardTransactionType toDomain(CardTransactionTypeDto cardTransactionTypeDto) {
+    public CardTransactionType toDomain(final CardTransactionTypeDto cardTransactionTypeDto) {
         return switch (cardTransactionTypeDto) {
-            case INPUT -> INFLOW;
-            case OUTPUT -> PAYMENT;
+            case IN -> INFLOW;
+            case OUT -> PAYMENT;
         };
     }
 
