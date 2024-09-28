@@ -2,7 +2,7 @@ package pl.training.payments.adapters.input.rest.dto;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
-import pl.training.payments.adapters.common.validation.Range;
+import pl.training.payments.adapters.commons.validation.Range;
 
 public final class CardTransactionRequestDto {
 

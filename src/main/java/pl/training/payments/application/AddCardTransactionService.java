@@ -1,6 +1,6 @@
 package pl.training.payments.application;
 
-import pl.training.common.annotations.Atomic;
+import pl.training.commons.annotations.Atomic;
 import pl.training.payments.domain.*;
 import pl.training.payments.ports.input.AddCardTransactionUseCase;
 import pl.training.payments.ports.output.CardEventPublisher;
