@@ -2,7 +2,7 @@ package training.payments.adapters.input.rest;
 
 public final class NewCardDto {
 
-    String currencyCode;
+    private String currencyCode;
 
     public String getCurrencyCode() {
         return currencyCode;
