@@ -1,4 +1,4 @@
-package training.payments.adapters.input.rest;
+package training.payments.adapters.input.rest.dto;
 
 public enum CardTransactionTypeDto {
 

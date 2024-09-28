@@ -4,6 +4,7 @@ import pl.training.commons.model.PageSpec;
 import pl.training.commons.model.ResultPage;
 import pl.training.payments.domain.*;
 import training.payments.adapters.commons.annotations.Mapper;
+import training.payments.adapters.input.rest.dto.*;
 
 import java.util.Currency;
 import java.util.List;
@@ -19,7 +20,7 @@ public final class CardRestMapper {
     }
 
     public Currency toDomain(final NewCardDto newCardDto) {
-        return Currency.getInstance(newCardDto.currencyCode);
+        return Currency.getInstance(newCardDto.getCurrencyCode());
     }
 
     public Money toDomain(final CardTransactionRequestDto cardTransactionRequestDto) {

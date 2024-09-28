@@ -1,13 +1,17 @@
-package training.payments.adapters.input.rest;
+package training.payments.adapters.input.rest.dto;
 
-import java.time.Instant;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import training.payments.adapters.commons.validation.Range;
 
-public final class CardTransactionDto {
+public final class CardTransactionRequestDto {
 
+    @NotNull
+    @Range(minValue = 100.0)
     private Double amount;
+    @Pattern(regexp = "^[a-zA-Z]*$")
     private String currencyCode;
     private CardTransactionTypeDto type;
-    private Instant timestamp;
 
     public Double getAmount() {
         return amount;
@@ -31,14 +35,6 @@ public final class CardTransactionDto {
 
     public void setType(final CardTransactionTypeDto type) {
         this.type = type;
-    }
-
-    public Instant getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(final Instant timestamp) {
-        this.timestamp = timestamp;
     }
 
 }

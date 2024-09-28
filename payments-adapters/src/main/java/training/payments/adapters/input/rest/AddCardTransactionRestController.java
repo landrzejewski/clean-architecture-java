@@ -4,6 +4,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import pl.training.payments.ports.input.AddCardTransactionUseCase;
+import training.payments.adapters.input.rest.dto.CardTransactionRequestDto;
 
 @RestController
 @RequestMapping("api/cards")

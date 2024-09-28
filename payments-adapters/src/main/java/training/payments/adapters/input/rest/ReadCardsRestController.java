@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import pl.training.commons.model.ResultPage;
 import pl.training.payments.ports.input.GetCardsUseCase;
+import training.payments.adapters.input.rest.dto.CardDto;
 
 @RestController
 @RequestMapping("api/cards")
