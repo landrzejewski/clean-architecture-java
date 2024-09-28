@@ -26,6 +26,7 @@ public class AddCardTransactionService implements AddCardTransactionUseCase {
         this.cardOperations = cardOperations;
     }
 
+    // @EnableLogging
     @Override
     public void addCardTransaction(final CardNumber cardNumber, final Money amount, final CardTransactionType cardTransactionType) {
         var card = cardQueries.findByNumber(cardNumber)
