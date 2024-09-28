@@ -1,15 +1,15 @@
 package pl.training.payments.adapters.output.time;
 
 import pl.training.payments.adapters.commons.annotations.Adapter;
-import pl.training.payments.ports.output.TimeProvider;
+import pl.training.payments.ports.output.DateTimeProvider;
 
 import java.time.ZonedDateTime;
 
 @Adapter
-public final class SystemTimeProvider implements TimeProvider {
+public final class SystemDateTimeProvider implements DateTimeProvider {
 
     @Override
-    public ZonedDateTime getTimestamp() {
+    public ZonedDateTime getZonedDateTime() {
         return ZonedDateTime.now();
     }
 

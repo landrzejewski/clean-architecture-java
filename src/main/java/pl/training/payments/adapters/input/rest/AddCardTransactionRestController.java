@@ -23,10 +23,8 @@ public final class AddCardTransactionRestController {
             @Validated @RequestBody final CardTransactionRequestDto cardTransactionRequestDto) {
         var cardNumber = mapper.toDomain(number);
         var amount = mapper.toDomain(cardTransactionRequestDto);
-        switch (cardTransactionRequestDto.getType()) {
-            case INPUT -> addCardTransactionUseCase.addInflowTransaction(cardNumber, amount);
-            case OUTPUT -> addCardTransactionUseCase.addPaymentTransaction(cardNumber, amount);
-        }
+        var transactionType = mapper.toDomain(cardTransactionRequestDto.getType());
+        addCardTransactionUseCase.addCardTransaction(cardNumber, amount, transactionType);
         return ResponseEntity.noContent().build();
     }
 

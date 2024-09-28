@@ -27,7 +27,7 @@ public final class RetryAspect {
                 LOGGER.info("Execution of method \"%s\" failed with exception: %s (attempt: %d)"
                         .formatted(joinPoint.getSignature(), throwable.getClass().getSimpleName(), attempt));
             }
-        } while (attempt < retry.attempts());
+        } while (attempt < retry.value());
         throw throwable;
     }
 

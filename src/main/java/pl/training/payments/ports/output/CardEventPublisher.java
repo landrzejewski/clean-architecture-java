@@ -4,6 +4,6 @@ import pl.training.payments.application.CardTransactionEvent;
 
 public interface CardEventPublisher {
 
-    void publish(CardTransactionEvent event);
+    void publish(CardTransactionEvent cardTransactionEvent);
 
 }

@@ -2,15 +2,14 @@ package pl.training.payments.domain;
 
 import java.util.Random;
 
-public class RandomCardNumberGenerator implements CardNumberGenerator {
+public final class RandomCardNumberGenerator implements CardNumberGenerator {
 
+    private final Random random = new Random();
     private final int length;
 
     public RandomCardNumberGenerator(final int length) {
         this.length = length;
     }
-
-    private final Random random = new Random();
 
     @Override
     public CardNumber getNext() {

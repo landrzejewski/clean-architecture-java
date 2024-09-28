@@ -15,7 +15,7 @@ public final class Card {
     private final LocalDate expiration;
     private final Currency currency;
     private final List<CardTransaction> transactions = new ArrayList<>();
-    private final List<Consumer<CardTransactionRegistered>> eventListeners = new ArrayList<>();
+    private final List<Consumer<CardTransactionRegisteredEvent>> eventListeners = new ArrayList<>();
 
     private Money balance;
 
@@ -78,15 +78,15 @@ public final class Card {
     }
 
     private void publish(final CardTransaction transaction) {
-        var event = new CardTransactionRegistered(number, transaction);
+        var event = new CardTransactionRegisteredEvent(number, transaction);
         eventListeners.forEach(listener -> listener.accept(event));
     }
 
-    public void addEventsListener(final Consumer<CardTransactionRegistered> listener) {
+    public void addEventsListener(final Consumer<CardTransactionRegisteredEvent> listener) {
         eventListeners.add(listener);
     }
 
-    public void removeEventsListener(final Consumer<CardTransactionRegistered> listener) {
+    public void removeEventsListener(final Consumer<CardTransactionRegisteredEvent> listener) {
         eventListeners.remove(listener);
     }
 

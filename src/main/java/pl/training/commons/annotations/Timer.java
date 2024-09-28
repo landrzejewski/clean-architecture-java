@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Timer {
 
-    TimeUnit timeUnit() default TimeUnit.NS;
+    TimeUnit value() default TimeUnit.NS;
 
     enum TimeUnit {
 

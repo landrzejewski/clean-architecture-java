@@ -9,6 +9,6 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Retry {
 
-    int attempts() default 3;
+    int value() default 3;
 
 }

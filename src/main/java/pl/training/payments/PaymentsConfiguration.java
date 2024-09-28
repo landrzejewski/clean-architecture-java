@@ -14,15 +14,15 @@ import pl.training.payments.ports.input.GetCardUseCase;
 import pl.training.payments.ports.input.GetCardsUseCase;
 import pl.training.payments.ports.output.CardEventPublisher;
 import pl.training.payments.ports.output.CardQueries;
-import pl.training.payments.ports.output.CardUpdates;
-import pl.training.payments.ports.output.TimeProvider;
+import pl.training.payments.ports.output.CardOperations;
+import pl.training.payments.ports.output.DateTimeProvider;
 
 @Configuration
 public class PaymentsConfiguration {
 
     @Bean
-    public AddCardUseCase addCardUseCase(CardNumberGenerator cardNumberGenerator, TimeProvider timeProvider, CardUpdates cardUpdates) {
-        return new AddCardService(cardNumberGenerator, timeProvider, cardUpdates);
+    public AddCardUseCase addCardUseCase(CardNumberGenerator cardNumberGenerator, DateTimeProvider dateTimeProvider, CardOperations cardOperations) {
+        return new AddCardService(cardNumberGenerator, dateTimeProvider, cardOperations);
     }
 
     @Bean
@@ -31,9 +31,9 @@ public class PaymentsConfiguration {
     }
 
     @Bean
-    public AddCardTransactionUseCase addCardTransactionUseCase(TimeProvider timeProvider, CardEventPublisher eventPublisher,
-                                                               CardQueries cardQueries, CardUpdates cardUpdates) {
-        return new AddCardTransactionService(timeProvider, eventPublisher, cardQueries, cardUpdates);
+    public AddCardTransactionUseCase addCardTransactionUseCase(DateTimeProvider dateTimeProvider, CardEventPublisher cardEventPublisher,
+                                                               CardQueries cardQueries, CardOperations cardOperations) {
+        return new AddCardTransactionService(dateTimeProvider, cardEventPublisher, cardQueries, cardOperations);
     }
 
     @Bean

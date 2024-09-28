@@ -5,13 +5,13 @@ import pl.training.commons.model.ResultPage;
 import pl.training.payments.adapters.commons.annotations.Adapter;
 import pl.training.payments.domain.Card;
 import pl.training.payments.domain.CardNumber;
-import pl.training.payments.ports.output.CardUpdates;
+import pl.training.payments.ports.output.CardOperations;
 import pl.training.payments.ports.output.CardQueries;
 
 import java.util.Optional;
 
 @Adapter
-public class SpringDataJpaCardRepositoryAdapter implements CardQueries, CardUpdates {
+public class SpringDataJpaCardRepositoryAdapter implements CardQueries, CardOperations {
 
     private final SpringDataJpaCardRepository repository;
     private final SpringDataJpaCardRepositoryMapper mapper;

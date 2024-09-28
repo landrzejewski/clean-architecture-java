@@ -17,7 +17,7 @@ public final class LockAspect {
     @Around("@annotation(lock)")
     public Object lock(final ProceedingJoinPoint joinPoint, final Lock lock) throws Throwable {
         var newLock = new ReentrantReadWriteLock();
-        var targetLock = lock.type() == WRITE ? newLock.writeLock() : newLock.readLock();
+        var targetLock = lock.value() == WRITE ? newLock.writeLock() : newLock.readLock();
         targetLock.lock();
         try {
             return joinPoint.proceed();

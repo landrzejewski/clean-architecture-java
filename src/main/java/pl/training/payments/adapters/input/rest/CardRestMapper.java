@@ -3,13 +3,13 @@ package pl.training.payments.adapters.input.rest;
 import pl.training.payments.adapters.commons.annotations.Mapper;
 import pl.training.commons.model.PageSpec;
 import pl.training.commons.model.ResultPage;
-import pl.training.payments.domain.Card;
-import pl.training.payments.domain.CardNumber;
-import pl.training.payments.domain.CardTransaction;
-import pl.training.payments.domain.Money;
+import pl.training.payments.domain.*;
 
 import java.util.Currency;
 import java.util.List;
+
+import static pl.training.payments.domain.CardTransactionType.INFLOW;
+import static pl.training.payments.domain.CardTransactionType.PAYMENT;
 
 @Mapper
 public class CardRestMapper {
@@ -57,12 +57,23 @@ public class CardRestMapper {
         var cardTransactionDto = new CardTransactionDto();
         cardTransactionDto.setAmount(cardTransaction.money().amount().doubleValue());
         cardTransactionDto.setCurrencyCode(cardTransaction.money().currency().getCurrencyCode());
-        cardTransactionDto.setType(switch (cardTransaction.type()) {
-            case INFLOW -> CardTransactionTypeDto.INPUT;
-            case PAYMENT -> CardTransactionTypeDto.OUTPUT;
-        });
+        cardTransactionDto.setType(toDto(cardTransaction.type()));
         cardTransactionDto.setTimestamp(cardTransaction.timestamp().toInstant());
         return cardTransactionDto;
+    }
+
+    public CardTransactionTypeDto toDto(final CardTransactionType cardTransactionType) {
+        return switch (cardTransactionType) {
+            case INFLOW -> CardTransactionTypeDto.INPUT;
+            case PAYMENT -> CardTransactionTypeDto.OUTPUT;
+        };
+    }
+
+    public CardTransactionType toDomain(CardTransactionTypeDto cardTransactionTypeDto) {
+        return switch (cardTransactionTypeDto) {
+            case INPUT -> INFLOW;
+            case OUTPUT -> PAYMENT;
+        };
     }
 
 }

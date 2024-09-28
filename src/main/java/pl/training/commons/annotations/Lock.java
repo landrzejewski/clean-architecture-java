@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Lock {
 
-    LockType type() default LockType.WRITE;
+    LockType value() default LockType.WRITE;
 
     enum LockType {
 

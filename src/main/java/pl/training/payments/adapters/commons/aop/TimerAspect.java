@@ -20,7 +20,7 @@ public class TimerAspect implements Ordered {
 
     @Around("@annotation(timer)")
     public Object measure(final ProceedingJoinPoint joinPoint, final Timer timer) throws Throwable {
-        var timeUnit = timer.timeUnit();
+        var timeUnit = timer.value();
         var startTime = getTime(timeUnit);
         var result = joinPoint.proceed();
         var endTime = getTime(timeUnit);
