@@ -22,7 +22,7 @@ class ArchitectureTest {
                 .dependOnClassesThat().resideInAPackage("..application..")
                 .check(classes);*/
 
-        var arch = layeredArchitecture().consideringAllDependencies()
+        layeredArchitecture().consideringAllDependencies()
                 .layer("Adapters").definedBy("pl.training.payments.adapters..")
                 .layer("Ports").definedBy("pl.training.payments.ports..")
                 .layer("Application").definedBy("pl.training.payments.application..")
@@ -31,9 +31,9 @@ class ArchitectureTest {
                 .whereLayer("Adapters")
                     .mayNotBeAccessedByAnyLayer()
                     .ignoreDependency(nameMatching(".*Configuration.*"), alwaysTrue())
-                .whereLayer("Application").mayOnlyBeAccessedByLayers("Adapters", "Ports");
-
-        arch.check(classes);
+                .whereLayer("Application")
+                    .mayOnlyBeAccessedByLayers("Adapters", "Ports")
+                .check(classes);
     }
 
 }
