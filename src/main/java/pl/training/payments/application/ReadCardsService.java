@@ -4,21 +4,21 @@ import pl.training.commons.annotations.Atomic;
 import pl.training.commons.model.PageSpec;
 import pl.training.commons.model.ResultPage;
 import pl.training.payments.domain.Card;
-import pl.training.payments.ports.input.ReadCards;
-import pl.training.payments.ports.output.CardRepository;
+import pl.training.payments.ports.input.GetCardsUseCase;
+import pl.training.payments.ports.output.CardQueries;
 
 @Atomic
-public class ReadCardsService implements ReadCards {
+public class ReadCardsService implements GetCardsUseCase {
 
-    private final CardRepository cardRepository;
+    private final CardQueries cardQueries;
 
-    public ReadCardsService(final CardRepository cardRepository) {
-        this.cardRepository = cardRepository;
+    public ReadCardsService(CardQueries cardQueries) {
+        this.cardQueries = cardQueries;
     }
 
     @Override
     public ResultPage<Card> getCards(final PageSpec pageSpec) {
-        return cardRepository.findAll(pageSpec);
+        return cardQueries.findAll(pageSpec);
     }
 
 }

@@ -7,12 +7,10 @@ import pl.training.payments.domain.CardNumber;
 
 import java.util.Optional;
 
-public interface CardRepository {
+public interface CardQueries {
 
     ResultPage<Card> findAll(PageSpec pageSpec);
 
     Optional<Card> findByNumber(CardNumber cardNumber);
-
-    Card save(Card card);
 
 }

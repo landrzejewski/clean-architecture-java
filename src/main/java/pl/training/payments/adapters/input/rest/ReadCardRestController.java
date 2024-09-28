@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import pl.training.payments.ports.input.ReadCard;
+import pl.training.payments.ports.input.GetCardUseCase;
 
 import java.util.List;
 
@@ -13,18 +13,18 @@ import java.util.List;
 @RequestMapping("api/cards")
 public final class ReadCardRestController {
 
-    private final ReadCard readCard;
+    private final GetCardUseCase getCardUseCase;
     private final CardRestMapper mapper;
 
-    public ReadCardRestController(final ReadCard readCard, final CardRestMapper mapper) {
-        this.readCard = readCard;
+    public ReadCardRestController(final GetCardUseCase readCard, final CardRestMapper mapper) {
+        this.getCardUseCase = readCard;
         this.mapper = mapper;
     }
 
     @GetMapping("{number:\\d{16,19}}")
     public ResponseEntity<CardDto> getCard(@PathVariable final String number) {
         var cardNumber = mapper.toDomain(number);
-        var transactions = readCard.getCard(cardNumber);
+        var transactions = getCardUseCase.getCard(cardNumber);
         var transactionsDtos = mapper.toDto(transactions);
         return ResponseEntity.ok(transactionsDtos);
     }
@@ -32,7 +32,7 @@ public final class ReadCardRestController {
     @GetMapping("{number:\\d{16,19}}/transactions")
     public ResponseEntity<List<CardTransactionDto>> getTransactions(@PathVariable final String number) {
         var cardNumber = mapper.toDomain(number);
-        var transactions = readCard.getCard(cardNumber).registeredTransactions();
+        var transactions = getCardUseCase.getCard(cardNumber).registeredTransactions();
         var transactionsDtos = mapper.toDto(transactions);
         return ResponseEntity.ok(transactionsDtos);
     }

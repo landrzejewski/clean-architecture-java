@@ -4,7 +4,7 @@ import pl.training.payments.domain.Card;
 
 import java.util.Currency;
 
-public interface AddCard {
+public interface AddCardUseCase {
 
     Card addCard(Currency currency);
 

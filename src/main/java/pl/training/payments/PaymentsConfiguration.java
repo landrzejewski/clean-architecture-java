@@ -8,20 +8,21 @@ import pl.training.payments.application.ReadCardService;
 import pl.training.payments.application.ReadCardsService;
 import pl.training.payments.domain.CardNumberGenerator;
 import pl.training.payments.domain.RandomCardNumberGenerator;
-import pl.training.payments.ports.input.AddCard;
-import pl.training.payments.ports.input.AddCardTransaction;
-import pl.training.payments.ports.input.ReadCard;
-import pl.training.payments.ports.input.ReadCards;
+import pl.training.payments.ports.input.AddCardTransactionUseCase;
+import pl.training.payments.ports.input.AddCardUseCase;
+import pl.training.payments.ports.input.GetCardUseCase;
+import pl.training.payments.ports.input.GetCardsUseCase;
 import pl.training.payments.ports.output.CardEventPublisher;
-import pl.training.payments.ports.output.CardRepository;
+import pl.training.payments.ports.output.CardQueries;
+import pl.training.payments.ports.output.CardUpdates;
 import pl.training.payments.ports.output.TimeProvider;
 
 @Configuration
 public class PaymentsConfiguration {
 
     @Bean
-    public AddCard addCard(CardNumberGenerator cardNumberGenerator, TimeProvider timeProvider, CardRepository cardRepository) {
-        return new AddCardService(cardNumberGenerator, timeProvider, cardRepository);
+    public AddCardUseCase addCardUseCase(CardNumberGenerator cardNumberGenerator, TimeProvider timeProvider, CardUpdates cardUpdates) {
+        return new AddCardService(cardNumberGenerator, timeProvider, cardUpdates);
     }
 
     @Bean
@@ -30,24 +31,25 @@ public class PaymentsConfiguration {
     }
 
     @Bean
-    public AddCardTransaction addCardTransaction(CardRepository cardRepository, TimeProvider timeProvider, CardEventPublisher eventPublisher) {
-        return new AddCardTransactionService(timeProvider, eventPublisher, cardRepository);
+    public AddCardTransactionUseCase addCardTransactionUseCase(TimeProvider timeProvider, CardEventPublisher eventPublisher,
+                                                               CardQueries cardQueries, CardUpdates cardUpdates) {
+        return new AddCardTransactionService(timeProvider, eventPublisher, cardQueries, cardUpdates);
     }
 
     @Bean
-    public ReadCard readCard(CardRepository cardRepository) {
-        return new ReadCardService(cardRepository);
+    public GetCardUseCase readCardUseCase(CardQueries cardQueries) {
+        return new ReadCardService(cardQueries);
     }
 
     @Bean
-    public ReadCards readCards(CardRepository cardRepository) {
-        return new ReadCardsService(cardRepository);
+    public GetCardsUseCase readCardsUseCase(CardQueries cardQueries) {
+        return new ReadCardsService(cardQueries);
     }
 
     /*@Bean
     public Advisor cacheAdvisor(CacheAspect cacheAspect) {
         var pointcut = new AspectJExpressionPointcut();
-        pointcut.setExpression("execution(pl.training.payments.domain.Card pl.training.payments.application.getCard(pl.training.payments.domain.CardNumber))");
+        pointcut.setExpression("execution(pl.training.payments.domain.Card pl.training.payments.application.ReadCardService.getCard(pl.training.payments.domain.CardNumber))");
         return new DefaultPointcutAdvisor(pointcut, cacheAspect);
     }*/
 

@@ -3,17 +3,17 @@ package pl.training.payments.adapters.input.rest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import pl.training.payments.ports.input.AddCardTransaction;
+import pl.training.payments.ports.input.AddCardTransactionUseCase;
 
 @RestController
 @RequestMapping("api/cards")
 public final class AddCardTransactionRestController {
 
-    private final AddCardTransaction addCardTransaction;
+    private final AddCardTransactionUseCase addCardTransactionUseCase;
     private final CardRestMapper mapper;
 
-    public AddCardTransactionRestController(final AddCardTransaction addCardTransaction, final CardRestMapper mapper) {
-        this.addCardTransaction = addCardTransaction;
+    public AddCardTransactionRestController(final AddCardTransactionUseCase addCardTransaction, final CardRestMapper mapper) {
+        this.addCardTransactionUseCase = addCardTransaction;
         this.mapper = mapper;
     }
 
@@ -24,8 +24,8 @@ public final class AddCardTransactionRestController {
         var cardNumber = mapper.toDomain(number);
         var amount = mapper.toDomain(cardTransactionRequestDto);
         switch (cardTransactionRequestDto.getType()) {
-            case INPUT -> addCardTransaction.addInflow(cardNumber, amount);
-            case OUTPUT -> addCardTransaction.addPayment(cardNumber, amount);
+            case INPUT -> addCardTransactionUseCase.addInflowTransaction(cardNumber, amount);
+            case OUTPUT -> addCardTransactionUseCase.addPaymentTransaction(cardNumber, amount);
         }
         return ResponseEntity.noContent().build();
     }
