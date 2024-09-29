@@ -1,9 +1,9 @@
 package training.payments.adapters.input.rest;
 
-import pl.training.commons.model.PageSpec;
-import pl.training.commons.model.ResultPage;
+import pl.training.common.model.PageSpec;
+import pl.training.common.model.ResultPage;
 import pl.training.payments.domain.*;
-import training.payments.adapters.commons.annotations.Mapper;
+import training.payments.adapters.common.annotations.Mapper;
 import training.payments.adapters.input.rest.dto.*;
 
 import java.util.Currency;

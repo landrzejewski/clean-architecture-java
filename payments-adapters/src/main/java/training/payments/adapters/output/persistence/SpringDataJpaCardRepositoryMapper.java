@@ -6,13 +6,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import pl.training.commons.model.PageSpec;
-import pl.training.commons.model.ResultPage;
+import pl.training.common.model.PageSpec;
+import pl.training.common.model.ResultPage;
 import pl.training.payments.domain.Card;
 import pl.training.payments.domain.CardId;
 import pl.training.payments.domain.CardNumber;
 import pl.training.payments.domain.CardTransaction;
-import training.payments.adapters.commons.annotations.Mapper;
+import training.payments.adapters.common.annotations.Mapper;
 
 import java.util.Currency;
 import java.util.List;

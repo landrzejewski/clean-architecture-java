@@ -2,7 +2,7 @@ package training.payments.adapters.output.events;
 
 import pl.training.payments.application.CardTransactionEvent;
 import pl.training.payments.ports.output.CardEventPublisher;
-import training.payments.adapters.commons.annotations.Adapter;
+import training.payments.adapters.common.annotations.Adapter;
 
 import java.util.logging.Logger;
 

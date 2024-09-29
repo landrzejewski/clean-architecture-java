@@ -1,7 +1,7 @@
 package training.payments.adapters.output.time;
 
 import pl.training.payments.ports.output.DateTimeProvider;
-import training.payments.adapters.commons.annotations.Adapter;
+import training.payments.adapters.common.annotations.Adapter;
 
 import java.time.ZonedDateTime;
 
