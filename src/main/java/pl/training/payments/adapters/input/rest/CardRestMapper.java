@@ -1,8 +1,8 @@
 package pl.training.payments.adapters.input.rest;
 
-import pl.training.commons.model.PageSpec;
-import pl.training.commons.model.ResultPage;
-import pl.training.payments.adapters.commons.annotations.Mapper;
+import pl.training.common.model.PageSpec;
+import pl.training.common.model.ResultPage;
+import pl.training.payments.adapters.common.annotations.Mapper;
 import pl.training.payments.adapters.input.rest.dto.*;
 import pl.training.payments.domain.*;
 

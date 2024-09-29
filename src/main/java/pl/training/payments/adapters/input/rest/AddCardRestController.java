@@ -9,7 +9,7 @@ import pl.training.payments.adapters.input.rest.dto.CardDto;
 import pl.training.payments.adapters.input.rest.dto.NewCardDto;
 import pl.training.payments.ports.input.AddCardUseCase;
 
-import static pl.training.payments.adapters.commons.web.LocationUri.fromCurrentRequestWith;
+import static pl.training.payments.adapters.common.web.LocationUri.fromCurrentRequestWith;
 
 @RestController
 @RequestMapping("api/cards")
