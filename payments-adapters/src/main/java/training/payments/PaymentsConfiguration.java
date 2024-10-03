@@ -16,7 +16,7 @@ import pl.training.payments.ports.output.CardOperations;
 import pl.training.payments.ports.output.CardQueries;
 import pl.training.payments.ports.output.DateTimeProvider;
 
-@Configuration
+@Configuration(proxyBeanMethods=false)
 public class PaymentsConfiguration {
 
     @Bean
