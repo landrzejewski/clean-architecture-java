@@ -7,7 +7,7 @@ import pl.training.payments.ports.input.GetCardUseCase;
 import pl.training.payments.ports.output.CardQueries;
 
 @Atomic
-public class GetCardService implements GetCardUseCase {
+public class GetCardService {
 
     private final CardQueries cardQueries;
 
@@ -15,7 +15,6 @@ public class GetCardService implements GetCardUseCase {
         this.cardQueries = cardQueries;
     }
 
-    @Override
     public Card getCard(final CardNumber cardNumber) {
         return cardQueries.findByNumber(cardNumber)
                 .orElseThrow(CardNotFoundException::new);

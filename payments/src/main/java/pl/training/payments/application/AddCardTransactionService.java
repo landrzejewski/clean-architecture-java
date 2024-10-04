@@ -1,6 +1,7 @@
 package pl.training.payments.application;
 
 import pl.training.common.annotations.Atomic;
+import pl.training.common.model.Money;
 import pl.training.payments.domain.*;
 import pl.training.payments.ports.input.AddCardTransactionUseCase;
 import pl.training.payments.ports.output.CardEventPublisher;
@@ -11,7 +12,7 @@ import pl.training.payments.ports.output.DateTimeProvider;
 import java.util.function.Consumer;
 
 @Atomic
-public class AddCardTransactionService implements AddCardTransactionUseCase {
+public class AddCardTransactionService {
 
     private final DateTimeProvider dateTimeProvider;
     private final CardEventPublisher eventPublisher;
@@ -26,8 +27,6 @@ public class AddCardTransactionService implements AddCardTransactionUseCase {
         this.cardOperations = cardOperations;
     }
 
-    // @EnableLogging
-    @Override
     public void addCardTransaction(final CardNumber cardNumber, final Money amount, final CardTransactionType cardTransactionType) {
         var card = cardQueries.findByNumber(cardNumber)
                 .orElseThrow(CardNotFoundException::new);

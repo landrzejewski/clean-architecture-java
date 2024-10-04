@@ -8,7 +8,7 @@ import pl.training.payments.ports.input.GetCardsUseCase;
 import pl.training.payments.ports.output.CardQueries;
 
 @Atomic
-public class GetCardsService implements GetCardsUseCase {
+public class GetCardsService {
 
     private final CardQueries cardQueries;
 
@@ -16,7 +16,6 @@ public class GetCardsService implements GetCardsUseCase {
         this.cardQueries = cardQueries;
     }
 
-    @Override
     public ResultPage<Card> getCards(final PageSpec pageSpec) {
         return cardQueries.findAll(pageSpec);
     }
