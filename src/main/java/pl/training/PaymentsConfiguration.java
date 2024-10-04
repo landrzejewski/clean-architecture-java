@@ -1,4 +1,4 @@
-package pl.training.payments.config;
+package pl.training;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
