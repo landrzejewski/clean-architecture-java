@@ -17,11 +17,6 @@
     <dependencies>
         <dependency>
             <groupId>pl.training</groupId>
-            <artifactId>payments-api</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>pl.training</groupId>
             <artifactId>common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
