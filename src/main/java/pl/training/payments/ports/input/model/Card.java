@@ -1,4 +1,6 @@
-package pl.training.payments.domain;
+package pl.training.payments.ports.input.model;
+
+import pl.training.payments.domain.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

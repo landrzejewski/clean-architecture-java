@@ -1,10 +1,12 @@
 package pl.training.payments.domain;
 
+import pl.training.payments.ports.input.model.CardTransactionType;
+
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import java.util.Currency;
 
-import static pl.training.payments.domain.CardTransactionType.PAYMENT;
+import static pl.training.payments.ports.input.model.CardTransactionType.PAYMENT;
 
 public record CardTransaction(ZonedDateTime timestamp, Money money, CardTransactionType type) {
 

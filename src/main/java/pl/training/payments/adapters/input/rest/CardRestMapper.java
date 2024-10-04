@@ -2,6 +2,9 @@ package pl.training.payments.adapters.input.rest;
 
 import pl.training.common.model.PageSpec;
 import pl.training.common.model.ResultPage;
+import pl.training.payments.ports.input.model.Card;
+import pl.training.payments.ports.input.model.CardNumber;
+import pl.training.payments.ports.input.model.CardTransactionType;
 import pl.training.payments.adapters.common.annotations.Mapper;
 import pl.training.payments.adapters.input.rest.dto.*;
 import pl.training.payments.domain.*;
@@ -9,8 +12,8 @@ import pl.training.payments.domain.*;
 import java.util.Currency;
 import java.util.List;
 
-import static pl.training.payments.domain.CardTransactionType.INFLOW;
-import static pl.training.payments.domain.CardTransactionType.PAYMENT;
+import static pl.training.payments.ports.input.model.CardTransactionType.INFLOW;
+import static pl.training.payments.ports.input.model.CardTransactionType.PAYMENT;
 
 @Mapper
 public final class CardRestMapper {

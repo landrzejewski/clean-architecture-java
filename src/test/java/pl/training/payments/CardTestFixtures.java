@@ -1,9 +1,9 @@
 package pl.training.payments;
 
 import pl.training.payments.adapters.output.persistence.CardEntity;
-import pl.training.payments.domain.Card;
+import pl.training.payments.ports.input.model.Card;
+import pl.training.payments.ports.input.model.CardNumber;
 import pl.training.payments.domain.CardId;
-import pl.training.payments.domain.CardNumber;
 import pl.training.payments.domain.Money;
 
 import java.time.LocalDate;

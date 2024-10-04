@@ -1,4 +1,4 @@
-package pl.training.payments.domain;
+package pl.training.payments.ports.input.model;
 
 public enum CardTransactionType {
 

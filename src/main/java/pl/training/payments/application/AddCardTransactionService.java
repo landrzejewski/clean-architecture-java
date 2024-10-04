@@ -1,6 +1,9 @@
 package pl.training.payments.application;
 
 import pl.training.common.annotations.Atomic;
+import pl.training.payments.ports.input.model.CardNotFoundException;
+import pl.training.payments.ports.input.model.CardNumber;
+import pl.training.payments.ports.input.model.CardTransactionType;
 import pl.training.payments.domain.*;
 import pl.training.payments.ports.input.AddCardTransactionUseCase;
 import pl.training.payments.ports.output.CardEventPublisher;

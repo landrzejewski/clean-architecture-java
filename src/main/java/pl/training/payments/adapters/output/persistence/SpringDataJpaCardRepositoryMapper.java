@@ -9,9 +9,9 @@ import org.springframework.data.domain.PageRequest;
 import pl.training.payments.adapters.common.annotations.Mapper;
 import pl.training.common.model.PageSpec;
 import pl.training.common.model.ResultPage;
-import pl.training.payments.domain.Card;
+import pl.training.payments.ports.input.model.Card;
 import pl.training.payments.domain.CardId;
-import pl.training.payments.domain.CardNumber;
+import pl.training.payments.ports.input.model.CardNumber;
 import pl.training.payments.domain.CardTransaction;
 
 import java.util.Currency;

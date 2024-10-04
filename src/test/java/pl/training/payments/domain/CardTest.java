@@ -1,14 +1,15 @@
 package pl.training.payments.domain;
 
 import org.junit.jupiter.api.Test;
+import pl.training.payments.ports.input.model.Card;
 import pl.training.payments.CardTestFixtures;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static pl.training.payments.CardTestFixtures.testDateTime;
 import static pl.training.payments.CardTestFixtures.testMoney;
-import static pl.training.payments.domain.CardTransactionType.INFLOW;
-import static pl.training.payments.domain.CardTransactionType.PAYMENT;
+import static pl.training.payments.ports.input.model.CardTransactionType.INFLOW;
+import static pl.training.payments.ports.input.model.CardTransactionType.PAYMENT;
 
 class CardTest {
 

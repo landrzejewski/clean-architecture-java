@@ -1,6 +1,6 @@
 package pl.training.payments.ports.output;
 
-import pl.training.payments.domain.Card;
+import pl.training.payments.ports.input.model.Card;
 
 public interface CardOperations {
 

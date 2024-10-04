@@ -1,5 +1,7 @@
 package pl.training.payments.domain;
 
+import pl.training.payments.ports.input.model.CardNumber;
+
 import java.util.Random;
 
 final class RandomCardNumberGenerator implements CardNumberGenerator {
