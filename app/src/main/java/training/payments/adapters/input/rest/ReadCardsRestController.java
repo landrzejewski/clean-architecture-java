@@ -6,9 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import pl.training.common.model.ResultPage;
-import pl.training.payments.adapters.GetCardsServiceAdapter;
 import pl.training.payments.application.GetCardsService;
-import pl.training.payments.ports.input.GetCardsUseCase;
 import training.payments.adapters.input.rest.dto.CardDto;
 
 @RestController

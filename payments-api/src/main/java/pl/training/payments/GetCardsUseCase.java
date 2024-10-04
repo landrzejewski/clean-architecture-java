@@ -1,8 +1,7 @@
-package pl.training.payments.ports.input;
+package pl.training.payments;
 
 import pl.training.common.model.PageSpec;
 import pl.training.common.model.ResultPage;
-import pl.training.payments.ports.model.CardInfo;
 
 public interface GetCardsUseCase {
 

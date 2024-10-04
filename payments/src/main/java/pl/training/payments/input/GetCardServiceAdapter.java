@@ -1,9 +1,8 @@
-package pl.training.payments.adapters;
+package pl.training.payments.input;
 
 import pl.training.payments.application.GetCardService;
-import pl.training.payments.domain.CardNumber;
-import pl.training.payments.ports.input.GetCardUseCase;
-import pl.training.payments.ports.model.CardInfo;
+import pl.training.payments.GetCardUseCase;
+import pl.training.payments.CardInfo;
 
 public class GetCardServiceAdapter implements GetCardUseCase {
 

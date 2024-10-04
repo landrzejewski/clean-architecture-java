@@ -2,20 +2,14 @@ package training.payments;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import pl.training.payments.adapters.*;
-import pl.training.payments.application.AddCardService;
-import pl.training.payments.application.AddCardTransactionService;
-import pl.training.payments.application.GetCardService;
-import pl.training.payments.application.GetCardsService;
+import pl.training.payments.AddCardTransactionListenerUseCase;
+import pl.training.payments.application.*;
 import pl.training.payments.domain.DefaultCardNumberGeneratorFactory;
-import pl.training.payments.ports.input.AddCardTransactionUseCase;
-import pl.training.payments.ports.input.AddCardUseCase;
-import pl.training.payments.ports.input.GetCardUseCase;
-import pl.training.payments.ports.input.GetCardsUseCase;
-import pl.training.payments.ports.output.CardEventPublisher;
-import pl.training.payments.ports.output.CardOperations;
-import pl.training.payments.ports.output.CardQueries;
-import pl.training.payments.ports.output.DateTimeProvider;
+import pl.training.payments.input.*;
+import pl.training.payments.output.CardEventPublisher;
+import pl.training.payments.output.CardOperations;
+import pl.training.payments.output.CardQueries;
+import pl.training.payments.output.DateTimeProvider;
 
 @Configuration(proxyBeanMethods=false)
 public class PaymentsConfiguration {
@@ -38,8 +32,9 @@ public class PaymentsConfiguration {
 
     @Bean
     public AddCardTransactionService addCardTransactionService(DateTimeProvider dateTimeProvider, CardEventPublisher cardEventPublisher,
-                                                                      CardQueries cardQueries, CardOperations cardOperations) {
-        return new AddCardTransactionService(dateTimeProvider, cardEventPublisher, cardQueries, cardOperations);
+                                                               CardQueries cardQueries, CardOperations cardOperations,
+                                                               CardTransactionEventBusService cardTransactionEventBusService) {
+        return new AddCardTransactionService(dateTimeProvider, cardEventPublisher, cardQueries, cardOperations, cardTransactionEventBusService);
     }
 
     @Bean

@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.training.payments.application.GetCardService;
-import pl.training.payments.ports.input.GetCardUseCase;
 import training.payments.adapters.input.rest.dto.CardDto;
 import training.payments.adapters.input.rest.dto.CardTransactionDto;
 

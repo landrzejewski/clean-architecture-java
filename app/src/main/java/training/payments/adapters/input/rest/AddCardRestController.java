@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.training.payments.application.AddCardService;
-import pl.training.payments.ports.input.AddCardUseCase;
 import training.payments.adapters.input.rest.dto.CardDto;
 import training.payments.adapters.input.rest.dto.NewCardDto;
 

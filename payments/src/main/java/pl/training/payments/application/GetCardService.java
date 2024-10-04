@@ -3,8 +3,7 @@ package pl.training.payments.application;
 import pl.training.common.annotations.Atomic;
 import pl.training.payments.domain.Card;
 import pl.training.payments.domain.CardNumber;
-import pl.training.payments.ports.input.GetCardUseCase;
-import pl.training.payments.ports.output.CardQueries;
+import pl.training.payments.output.CardQueries;
 
 @Atomic
 public class GetCardService {

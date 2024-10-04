@@ -1,4 +1,4 @@
-package pl.training.payments.ports.output;
+package pl.training.payments.output;
 
 import pl.training.payments.domain.Card;
 

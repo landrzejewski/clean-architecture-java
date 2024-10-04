@@ -1,10 +1,9 @@
-package pl.training.payments.adapters;
+package pl.training.payments.input;
 
 import pl.training.common.model.Money;
 import pl.training.payments.application.AddCardTransactionService;
-import pl.training.payments.domain.CardNumber;
-import pl.training.payments.ports.input.AddCardTransactionUseCase;
-import pl.training.payments.ports.model.CardTransactionType;
+import pl.training.payments.AddCardTransactionUseCase;
+import pl.training.payments.CardTransactionType;
 
 public class AddCardTransactionServiceAdapter implements AddCardTransactionUseCase {
 

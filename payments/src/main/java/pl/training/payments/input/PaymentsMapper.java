@@ -1,9 +1,9 @@
-package pl.training.payments.adapters;
+package pl.training.payments.input;
 
 import pl.training.common.model.ResultPage;
 import pl.training.payments.domain.Card;
 import pl.training.payments.domain.CardNumber;
-import pl.training.payments.ports.model.CardInfo;
+import pl.training.payments.CardInfo;
 
 public class PaymentsMapper {
 

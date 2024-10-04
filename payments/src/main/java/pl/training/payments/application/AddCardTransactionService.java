@@ -3,11 +3,11 @@ package pl.training.payments.application;
 import pl.training.common.annotations.Atomic;
 import pl.training.common.model.Money;
 import pl.training.payments.domain.*;
-import pl.training.payments.ports.model.CardTransactionType;
-import pl.training.payments.ports.output.CardEventPublisher;
-import pl.training.payments.ports.output.CardOperations;
-import pl.training.payments.ports.output.CardQueries;
-import pl.training.payments.ports.output.DateTimeProvider;
+import pl.training.payments.CardTransactionType;
+import pl.training.payments.output.CardEventPublisher;
+import pl.training.payments.output.CardOperations;
+import pl.training.payments.output.CardQueries;
+import pl.training.payments.output.DateTimeProvider;
 
 import java.util.function.Consumer;
 
@@ -18,13 +18,16 @@ public class AddCardTransactionService {
     private final CardEventPublisher eventPublisher;
     private final CardQueries cardQueries;
     private final CardOperations cardOperations;
+    private final CardTransactionEventBusService cardTransactionEventBusService;
 
     public AddCardTransactionService(final DateTimeProvider dateTimeProvider, final CardEventPublisher cardEventPublisher,
-                                     final CardQueries cardQueries, final CardOperations cardOperations) {
+                                     final CardQueries cardQueries, final CardOperations cardOperations,
+                                     final CardTransactionEventBusService cardTransactionEventBusService) {
         this.dateTimeProvider = dateTimeProvider;
         this.eventPublisher = cardEventPublisher;
         this.cardQueries = cardQueries;
         this.cardOperations = cardOperations;
+        this.cardTransactionEventBusService = cardTransactionEventBusService;
     }
 
     public void addCardTransaction(final CardNumber cardNumber, final Money amount, final CardTransactionType cardTransactionType) {
@@ -42,6 +45,7 @@ public class AddCardTransactionService {
         return event -> {
             var appEvent = new CardTransactionEvent(event.cardNumber().toString(), event.cardTransaction().type().name());
             eventPublisher.publish(appEvent);
+            cardTransactionEventBusService.notifyAll(event.cardNumber().value());
         };
     }
 

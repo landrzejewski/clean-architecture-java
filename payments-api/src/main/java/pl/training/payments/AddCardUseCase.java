@@ -1,4 +1,4 @@
-package pl.training.payments.ports.input;
+package pl.training.payments;
 
 import java.util.Currency;
 

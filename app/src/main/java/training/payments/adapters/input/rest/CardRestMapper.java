@@ -4,15 +4,15 @@ import pl.training.common.model.Money;
 import pl.training.common.model.PageSpec;
 import pl.training.common.model.ResultPage;
 import pl.training.payments.domain.*;
-import pl.training.payments.ports.model.CardTransactionType;
+import pl.training.payments.CardTransactionType;
 import training.payments.adapters.common.annotations.Mapper;
 import training.payments.adapters.input.rest.dto.*;
 
 import java.util.Currency;
 import java.util.List;
 
-import static pl.training.payments.ports.model.CardTransactionType.INFLOW;
-import static pl.training.payments.ports.model.CardTransactionType.PAYMENT;
+import static pl.training.payments.CardTransactionType.INFLOW;
+import static pl.training.payments.CardTransactionType.PAYMENT;
 
 @Mapper
 public final class CardRestMapper {

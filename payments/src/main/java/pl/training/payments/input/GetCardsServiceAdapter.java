@@ -1,10 +1,10 @@
-package pl.training.payments.adapters;
+package pl.training.payments.input;
 
 import pl.training.common.model.PageSpec;
 import pl.training.common.model.ResultPage;
 import pl.training.payments.application.GetCardsService;
-import pl.training.payments.ports.input.GetCardsUseCase;
-import pl.training.payments.ports.model.CardInfo;
+import pl.training.payments.GetCardsUseCase;
+import pl.training.payments.CardInfo;
 
 public class GetCardsServiceAdapter implements GetCardsUseCase {
 

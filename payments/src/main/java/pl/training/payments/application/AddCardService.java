@@ -4,8 +4,8 @@ import pl.training.common.annotations.Atomic;
 import pl.training.payments.domain.Card;
 import pl.training.payments.domain.CardId;
 import pl.training.payments.domain.CardNumberGenerator;
-import pl.training.payments.ports.output.CardOperations;
-import pl.training.payments.ports.output.DateTimeProvider;
+import pl.training.payments.output.CardOperations;
+import pl.training.payments.output.DateTimeProvider;
 
 import java.time.LocalDate;
 import java.util.Currency;

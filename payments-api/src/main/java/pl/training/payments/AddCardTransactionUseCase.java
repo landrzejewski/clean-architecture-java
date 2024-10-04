@@ -1,7 +1,6 @@
-package pl.training.payments.ports.input;
+package pl.training.payments;
 
 import pl.training.common.model.Money;
-import pl.training.payments.ports.model.CardTransactionType;
 
 public interface AddCardTransactionUseCase {
 

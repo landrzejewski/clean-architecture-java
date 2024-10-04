@@ -1,7 +1,7 @@
-package pl.training.payments.adapters;
+package pl.training.payments.input;
 
 import pl.training.payments.application.AddCardService;
-import pl.training.payments.ports.input.AddCardUseCase;
+import pl.training.payments.AddCardUseCase;
 
 import java.util.Currency;
 
