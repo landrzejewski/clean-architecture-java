@@ -4,7 +4,7 @@ import pl.training.payments.adapters.output.persistence.CardEntity;
 import pl.training.payments.ports.input.model.Card;
 import pl.training.payments.ports.input.model.CardNumber;
 import pl.training.payments.domain.CardId;
-import pl.training.payments.domain.Money;
+import pl.training.common.model.Money;
 
 import java.time.LocalDate;
 import java.time.ZonedDateTime;

@@ -6,7 +6,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import pl.training.payments.ports.input.model.CardNumber;
 import pl.training.payments.ports.input.model.CardTransactionType;
-import pl.training.payments.domain.Money;
+import pl.training.common.model.Money;
 
 import java.util.logging.Logger;
 
@@ -18,7 +18,7 @@ public final class CardTransactionLoggingAspect {
     private static final Logger log = Logger.getLogger(CardTransactionLoggingAspect.class.getName());
 
     //@Pointcut("@annotation(pl.training.common.annotations.EnableLogging)")
-    @Pointcut("execution(void pl.training.payments.application.AddCardTransactionService.addCardTransaction(pl.training.payments.ports.input.model.CardNumber, pl.training.payments.domain.Money, pl.training.payments.ports.input.model.CardTransactionType))")
+    @Pointcut("execution(void pl.training.payments.application.AddCardTransactionService.addCardTransaction(pl.training.payments.ports.input.model.CardNumber, pl.training.common.model.Money, pl.training.payments.ports.input.model.CardTransactionType))")
     public void transaction() {
     }
 

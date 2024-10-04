@@ -1,5 +1,6 @@
 package pl.training.payments.adapters.input.rest;
 
+import pl.training.common.model.Money;
 import pl.training.common.model.PageSpec;
 import pl.training.common.model.ResultPage;
 import pl.training.payments.ports.input.model.Card;

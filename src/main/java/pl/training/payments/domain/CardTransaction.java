@@ -1,5 +1,6 @@
 package pl.training.payments.domain;
 
+import pl.training.common.model.Money;
 import pl.training.payments.ports.input.model.CardTransactionType;
 
 import java.time.LocalDate;

@@ -1,4 +1,4 @@
-package pl.training.payments.domain;
+package pl.training.common.model;
 
 import java.math.BigDecimal;
 import java.util.Currency;

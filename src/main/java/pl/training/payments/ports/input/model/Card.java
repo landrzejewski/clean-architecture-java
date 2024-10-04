@@ -1,5 +1,7 @@
 package pl.training.payments.ports.input.model;
 
+import pl.training.common.model.CurrencyMismatchException;
+import pl.training.common.model.Money;
 import pl.training.payments.domain.*;
 
 import java.time.LocalDate;
