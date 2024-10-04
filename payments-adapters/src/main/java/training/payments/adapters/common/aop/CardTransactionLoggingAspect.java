@@ -6,7 +6,6 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import pl.training.payments.domain.CardNumber;
 import pl.training.payments.domain.CardTransactionType;
-import pl.training.payments.domain.Money;
 
 import java.util.logging.Logger;
 

@@ -19,6 +19,7 @@
 
     <modules>
         <module>common</module>
+        <module>payments-api</module>
         <module>payments</module>
         <module>payments-adapters</module>
     </modules>

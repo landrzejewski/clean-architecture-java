@@ -1,5 +1,8 @@
 package pl.training.payments.domain;
 
+import pl.training.common.model.CurrencyMismatchException;
+import pl.training.common.model.Money;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Currency;

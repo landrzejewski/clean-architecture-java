@@ -1,5 +1,7 @@
 package pl.training.payments.domain;
 
+import pl.training.common.model.Money;
+
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import java.util.Currency;
