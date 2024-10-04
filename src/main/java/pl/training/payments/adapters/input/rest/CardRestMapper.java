@@ -3,18 +3,18 @@ package pl.training.payments.adapters.input.rest;
 import pl.training.common.model.Money;
 import pl.training.common.model.PageSpec;
 import pl.training.common.model.ResultPage;
-import pl.training.payments.ports.input.model.Card;
-import pl.training.payments.ports.input.model.CardNumber;
-import pl.training.payments.ports.input.model.CardTransactionType;
+import pl.training.payments.Card;
+import pl.training.payments.CardNumber;
+import pl.training.payments.CardTransaction;
+import pl.training.payments.CardTransactionType;
 import pl.training.common.annotations.Mapper;
 import pl.training.payments.adapters.input.rest.dto.*;
-import pl.training.payments.domain.*;
 
 import java.util.Currency;
 import java.util.List;
 
-import static pl.training.payments.ports.input.model.CardTransactionType.INFLOW;
-import static pl.training.payments.ports.input.model.CardTransactionType.PAYMENT;
+import static pl.training.payments.CardTransactionType.INFLOW;
+import static pl.training.payments.CardTransactionType.PAYMENT;
 
 @Mapper
 public final class CardRestMapper {

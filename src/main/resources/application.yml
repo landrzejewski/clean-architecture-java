@@ -16,3 +16,5 @@ spring:
       name: admin
       password: $2a$10$g28wukm5E3PjIMPR1mTgfek8GOU2V/hTM4MmZBp.Vx30WsrpAcY8W
       roles: ADMIN
+cardNumber:
+  length: 16

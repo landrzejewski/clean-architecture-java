@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import pl.training.common.web.ExceptionDto;
 import pl.training.common.web.RestExceptionResponseBuilder;
-import pl.training.payments.ports.input.model.CardNotFoundException;
+import pl.training.payments.CardNotFoundException;
 
 import java.util.Locale;
 

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.training.payments.adapters.input.rest.dto.CardDto;
 import pl.training.payments.adapters.input.rest.dto.NewCardDto;
-import pl.training.payments.ports.input.AddCardUseCase;
+import pl.training.payments.AddCardService;
 
 import static pl.training.common.web.LocationUri.fromCurrentRequestWith;
 
@@ -15,18 +15,18 @@ import static pl.training.common.web.LocationUri.fromCurrentRequestWith;
 @RequestMapping("api/cards")
 public final class AddCardRestController {
 
-    private final AddCardUseCase addCardUseCase;
+    private final AddCardService addCardService;
     private final CardRestMapper mapper;
 
-    public AddCardRestController(AddCardUseCase addCardUseCase, CardRestMapper mapper) {
-        this.addCardUseCase = addCardUseCase;
+    public AddCardRestController(AddCardService addCardService, CardRestMapper mapper) {
+        this.addCardService = addCardService;
         this.mapper = mapper;
     }
 
     @PostMapping
     public ResponseEntity<CardDto> addCard(@RequestBody final NewCardDto newCardDto) {
         var currency = mapper.toDomain(newCardDto);
-        var card = addCardUseCase.addCard(currency);
+        var card = addCardService.addCard(currency);
         var locationUri = fromCurrentRequestWith(card.getNumber().value());
         var cardDto = mapper.toDto(card);
         return ResponseEntity.created(locationUri).body(cardDto);
