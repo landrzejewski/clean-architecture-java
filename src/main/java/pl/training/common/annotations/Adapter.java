@@ -1,4 +1,4 @@
-package pl.training.payments.adapters.common.annotations;
+package pl.training.common.annotations;
 
 import org.springframework.stereotype.Component;
 
@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Component
-public @interface Mapper {
+public @interface Adapter {
 
     String value() default "";
 

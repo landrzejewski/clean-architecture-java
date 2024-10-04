@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import pl.training.payments.adapters.common.annotations.Mapper;
+import pl.training.common.annotations.Mapper;
 import pl.training.common.model.PageSpec;
 import pl.training.common.model.ResultPage;
 import pl.training.payments.ports.input.model.Card;

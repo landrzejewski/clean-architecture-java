@@ -1,4 +1,4 @@
-package pl.training.payments.adapters.common.validation;
+package pl.training.common.validation;
 
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;

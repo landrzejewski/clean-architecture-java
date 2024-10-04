@@ -1,6 +1,6 @@
 package pl.training.payments.adapters.output.events;
 
-import pl.training.payments.adapters.common.annotations.Adapter;
+import pl.training.common.annotations.Adapter;
 import pl.training.payments.application.CardTransactionEvent;
 import pl.training.payments.ports.output.CardEventPublisher;
 
