@@ -4,8 +4,9 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+import pl.training.common.model.Money;
 import pl.training.payments.domain.CardNumber;
-import pl.training.payments.domain.CardTransactionType;
+import pl.training.payments.ports.model.CardTransactionType;
 
 import java.util.logging.Logger;
 

@@ -3,18 +3,18 @@ package training.payments.adapters.input.rest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import pl.training.payments.ports.input.AddCardTransactionUseCase;
+import pl.training.payments.application.AddCardTransactionService;
 import training.payments.adapters.input.rest.dto.CardTransactionRequestDto;
 
 @RestController
 @RequestMapping("api/cards")
 public final class AddCardTransactionRestController {
 
-    private final AddCardTransactionUseCase addCardTransactionUseCase;
+    private final AddCardTransactionService addCardTransactionService;
     private final CardRestMapper mapper;
 
-    public AddCardTransactionRestController(final AddCardTransactionUseCase addCardTransactionUseCase, final CardRestMapper mapper) {
-        this.addCardTransactionUseCase = addCardTransactionUseCase;
+    public AddCardTransactionRestController(AddCardTransactionService addCardTransactionService, CardRestMapper mapper) {
+        this.addCardTransactionService = addCardTransactionService;
         this.mapper = mapper;
     }
 
@@ -25,7 +25,7 @@ public final class AddCardTransactionRestController {
         var cardNumber = mapper.toDomain(number);
         var amount = mapper.toDomain(cardTransactionRequestDto);
         var transactionType = mapper.toDomain(cardTransactionRequestDto.getType());
-        addCardTransactionUseCase.addCardTransaction(cardNumber, amount, transactionType);
+        addCardTransactionService.addCardTransaction(cardNumber, amount, transactionType);
         return ResponseEntity.noContent().build();
     }
 

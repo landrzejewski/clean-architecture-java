@@ -3,7 +3,7 @@ package pl.training.payments.application;
 import pl.training.common.annotations.Atomic;
 import pl.training.common.model.Money;
 import pl.training.payments.domain.*;
-import pl.training.payments.ports.input.AddCardTransactionUseCase;
+import pl.training.payments.ports.model.CardTransactionType;
 import pl.training.payments.ports.output.CardEventPublisher;
 import pl.training.payments.ports.output.CardOperations;
 import pl.training.payments.ports.output.CardQueries;
