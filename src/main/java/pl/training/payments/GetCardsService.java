@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.training.common.model.PageSpec;
 import pl.training.common.model.ResultPage;
-import pl.training.payments.adapters.output.persistence.CardQueries;
+import pl.training.payments.infrastruture.persistence.CardQueries;
 
 @Transactional
 @Service

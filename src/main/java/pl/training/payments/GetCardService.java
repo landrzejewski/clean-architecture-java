@@ -2,7 +2,7 @@ package pl.training.payments;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import pl.training.payments.adapters.output.persistence.CardQueries;
+import pl.training.payments.infrastruture.persistence.CardQueries;
 
 @Transactional
 @Service

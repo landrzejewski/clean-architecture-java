@@ -1,12 +1,12 @@
-package pl.training.payments.adapters.output.persistence.jpa;
+package pl.training.payments.infrastruture.persistence.jpa;
 
 import pl.training.common.model.PageSpec;
 import pl.training.common.model.ResultPage;
 import pl.training.common.annotations.Adapter;
 import pl.training.payments.Card;
 import pl.training.payments.CardNumber;
-import pl.training.payments.adapters.output.persistence.CardOperations;
-import pl.training.payments.adapters.output.persistence.CardQueries;
+import pl.training.payments.infrastruture.persistence.CardOperations;
+import pl.training.payments.infrastruture.persistence.CardQueries;
 
 import java.util.Optional;
 

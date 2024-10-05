@@ -1,4 +1,4 @@
-package pl.training.payments.adapters.output.persistence;
+package pl.training.payments.infrastruture.persistence;
 
 import pl.training.common.model.PageSpec;
 import pl.training.common.model.ResultPage;

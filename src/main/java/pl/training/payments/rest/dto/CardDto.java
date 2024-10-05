@@ -1,4 +1,4 @@
-package pl.training.payments.adapters.input.rest.dto;
+package pl.training.payments.rest.dto;
 
 import java.time.LocalDate;
 

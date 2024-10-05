@@ -1,4 +1,4 @@
-package pl.training.payments.adapters.output.time;
+package pl.training.payments.infrastruture.time;
 
 import pl.training.common.annotations.Adapter;
 

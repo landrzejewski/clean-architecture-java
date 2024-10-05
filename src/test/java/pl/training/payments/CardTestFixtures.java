@@ -1,6 +1,6 @@
 package pl.training.payments;
 
-import pl.training.payments.adapters.output.persistence.jpa.CardEntity;
+import pl.training.payments.infrastruture.persistence.jpa.CardEntity;
 import pl.training.common.model.Money;
 
 import java.time.LocalDate;

@@ -1,4 +1,4 @@
-package pl.training.payments.adapters.input.rest;
+package pl.training.payments.rest;
 
 import pl.training.common.model.Money;
 import pl.training.common.model.PageSpec;
@@ -8,7 +8,7 @@ import pl.training.payments.CardNumber;
 import pl.training.payments.CardTransaction;
 import pl.training.payments.CardTransactionType;
 import pl.training.common.annotations.Mapper;
-import pl.training.payments.adapters.input.rest.dto.*;
+import pl.training.payments.rest.dto.*;
 
 import java.util.Currency;
 import java.util.List;

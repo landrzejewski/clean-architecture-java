@@ -1,4 +1,4 @@
-package pl.training.payments.adapters.output.persistence.jpa;
+package pl.training.payments.infrastruture.persistence.jpa;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

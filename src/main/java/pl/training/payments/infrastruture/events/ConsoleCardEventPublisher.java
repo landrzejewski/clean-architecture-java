@@ -1,4 +1,4 @@
-package pl.training.payments.adapters.output.events;
+package pl.training.payments.infrastruture.events;
 
 import pl.training.common.annotations.Adapter;
 import pl.training.payments.CardTransactionEvent;

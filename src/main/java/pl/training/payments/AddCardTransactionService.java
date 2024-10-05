@@ -3,10 +3,10 @@ package pl.training.payments;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.training.common.model.Money;
-import pl.training.payments.adapters.output.events.CardEventPublisher;
-import pl.training.payments.adapters.output.persistence.CardOperations;
-import pl.training.payments.adapters.output.persistence.CardQueries;
-import pl.training.payments.adapters.output.time.DateTimeProvider;
+import pl.training.payments.infrastruture.events.CardEventPublisher;
+import pl.training.payments.infrastruture.persistence.CardOperations;
+import pl.training.payments.infrastruture.persistence.CardQueries;
+import pl.training.payments.infrastruture.time.DateTimeProvider;
 
 import java.util.function.Consumer;
 

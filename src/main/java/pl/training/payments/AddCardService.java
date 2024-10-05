@@ -3,8 +3,8 @@ package pl.training.payments;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.training.payments.internal.CardNumberGenerator;
-import pl.training.payments.adapters.output.persistence.CardOperations;
-import pl.training.payments.adapters.output.time.DateTimeProvider;
+import pl.training.payments.infrastruture.persistence.CardOperations;
+import pl.training.payments.infrastruture.time.DateTimeProvider;
 
 import java.time.LocalDate;
 import java.util.Currency;

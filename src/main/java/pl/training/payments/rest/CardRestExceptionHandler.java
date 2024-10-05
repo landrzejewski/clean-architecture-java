@@ -1,4 +1,4 @@
-package pl.training.payments.adapters.input.rest;
+package pl.training.payments.rest;
 
 import org.springframework.core.annotation.Order;
 import org.springframework.http.ResponseEntity;

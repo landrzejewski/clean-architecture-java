@@ -1,4 +1,4 @@
-package pl.training.payments.adapters.output.time;
+package pl.training.payments.infrastruture.time;
 
 import java.time.ZonedDateTime;
 

@@ -1,4 +1,4 @@
-package pl.training.payments.adapters.output.persistence.jpa;
+package pl.training.payments.infrastruture.persistence.jpa;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;

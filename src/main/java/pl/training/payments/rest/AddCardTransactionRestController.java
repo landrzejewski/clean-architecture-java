@@ -1,9 +1,9 @@
-package pl.training.payments.adapters.input.rest;
+package pl.training.payments.rest;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import pl.training.payments.adapters.input.rest.dto.CardTransactionRequestDto;
+import pl.training.payments.rest.dto.CardTransactionRequestDto;
 import pl.training.payments.AddCardTransactionService;
 
 @RestController
