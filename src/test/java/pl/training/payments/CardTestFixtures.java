@@ -1,6 +1,6 @@
 package pl.training.payments;
 
-import pl.training.payments.adapters.output.persistence.CardEntity;
+import pl.training.payments.adapters.infrastructure.persistence.CardEntity;
 import pl.training.payments.domain.Card;
 import pl.training.payments.domain.CardId;
 import pl.training.payments.domain.CardNumber;

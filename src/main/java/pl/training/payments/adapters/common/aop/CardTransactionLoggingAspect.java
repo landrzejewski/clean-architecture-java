@@ -18,7 +18,7 @@ public final class CardTransactionLoggingAspect {
     private static final Logger log = Logger.getLogger(CardTransactionLoggingAspect.class.getName());
 
     //@Pointcut("@annotation(pl.training.common.annotations.EnableLogging)")
-    @Pointcut("execution(void pl.training.payments.application.AddCardTransactionService.addCardTransaction(pl.training.payments.domain.CardNumber, pl.training.payments.domain.Money, pl.training.payments.domain.CardTransactionType))")
+    @Pointcut("execution(void pl.training.payments.application.AddCardTransactionUseCase.handle(pl.training.payments.domain.CardNumber, pl.training.payments.domain.Money, pl.training.payments.domain.CardTransactionType))")
     public void transaction() {
     }
 
