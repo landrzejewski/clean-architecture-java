@@ -1,21 +1,21 @@
 package pl.training.payments.application;
 
 import pl.training.common.annotations.Atomic;
-import pl.training.payments.application.infrastructure.CardQueries;
+import pl.training.payments.application.infrastructure.CardRepository;
 import pl.training.payments.domain.Card;
 import pl.training.payments.domain.CardNumber;
 
 @Atomic
 public class GetCardUseCase {
 
-    private final CardQueries cardQueries;
+    private final CardRepository cardRepository;
 
-    public GetCardUseCase(final CardQueries cardQueries) {
-        this.cardQueries = cardQueries;
+    public GetCardUseCase(final CardRepository cardRepository) {
+        this.cardRepository = cardRepository;
     }
 
     public Card handle(final CardNumber cardNumber) {
-        return cardQueries.findByNumber(cardNumber)
+        return cardRepository.findByNumber(cardNumber)
                 .orElseThrow(CardNotFoundException::new);
     }
 

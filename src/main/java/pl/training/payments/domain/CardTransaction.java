@@ -6,7 +6,7 @@ import java.util.Currency;
 
 import static pl.training.payments.domain.CardTransactionType.PAYMENT;
 
-public record CardTransaction(ZonedDateTime timestamp, Money money, CardTransactionType type) {
+public record CardTransaction(CardTransactionId id, ZonedDateTime timestamp, Money money, CardTransactionType type) {
 
     public boolean hasCurrency(final Currency currency) {
         return money.currency().equals(currency);

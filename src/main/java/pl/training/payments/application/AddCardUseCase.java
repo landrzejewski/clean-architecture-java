@@ -1,11 +1,11 @@
 package pl.training.payments.application;
 
 import pl.training.common.annotations.Atomic;
+import pl.training.payments.application.infrastructure.CardRepository;
+import pl.training.payments.application.infrastructure.DateTimeProvider;
 import pl.training.payments.domain.Card;
 import pl.training.payments.domain.CardId;
 import pl.training.payments.domain.CardNumberGenerator;
-import pl.training.payments.application.infrastructure.CardOperations;
-import pl.training.payments.application.infrastructure.DateTimeProvider;
 
 import java.time.LocalDate;
 import java.util.Currency;
@@ -17,17 +17,17 @@ public class AddCardUseCase {
 
     private final CardNumberGenerator cardNumberGenerator;
     private final DateTimeProvider dateTimeProvider;
-    private final CardOperations cardOperations;
+    private final CardRepository cardRepository;
 
-    public AddCardUseCase(final CardNumberGenerator cardNumberGenerator, final DateTimeProvider dateTimeProvider, final CardOperations cardOperations) {
+    public AddCardUseCase(final CardNumberGenerator cardNumberGenerator, final DateTimeProvider dateTimeProvider, final CardRepository cardRepository) {
         this.cardNumberGenerator = cardNumberGenerator;
         this.dateTimeProvider = dateTimeProvider;
-        this.cardOperations = cardOperations;
+        this.cardRepository = cardRepository;
     }
 
     public Card handle(final Currency currency) {
         var card = new Card(new CardId(), cardNumberGenerator.getNext(), calculateExpirationDate(), currency);
-        return cardOperations.save(card);
+        return cardRepository.save(card);
     }
 
     private LocalDate calculateExpirationDate() {

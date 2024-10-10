@@ -1,11 +1,10 @@
 package pl.training.payments.application;
 
 import pl.training.common.annotations.Atomic;
-import pl.training.payments.domain.*;
 import pl.training.payments.application.infrastructure.CardEventPublisher;
-import pl.training.payments.application.infrastructure.CardOperations;
-import pl.training.payments.application.infrastructure.CardQueries;
+import pl.training.payments.application.infrastructure.CardRepository;
 import pl.training.payments.application.infrastructure.DateTimeProvider;
+import pl.training.payments.domain.*;
 
 import java.util.function.Consumer;
 
@@ -14,27 +13,25 @@ public class AddCardTransactionUseCase {
 
     private final DateTimeProvider dateTimeProvider;
     private final CardEventPublisher eventPublisher;
-    private final CardQueries cardQueries;
-    private final CardOperations cardOperations;
+    private final CardRepository cardRepository;
 
     public AddCardTransactionUseCase(final DateTimeProvider dateTimeProvider, final CardEventPublisher cardEventPublisher,
-                                     final CardQueries cardQueries, final CardOperations cardOperations) {
+                                    final CardRepository cardRepository) {
         this.dateTimeProvider = dateTimeProvider;
         this.eventPublisher = cardEventPublisher;
-        this.cardQueries = cardQueries;
-        this.cardOperations = cardOperations;
+        this.cardRepository = cardRepository;
     }
 
     // @EnableLogging
     public void handle(final CardNumber cardNumber, final Money amount, final CardTransactionType cardTransactionType) {
-        var card = cardQueries.findByNumber(cardNumber)
+        var card = cardRepository.findByNumber(cardNumber)
                 .orElseThrow(CardNotFoundException::new);
         var cardEventListener = createCardEventListener();
         card.addEventsListener(cardEventListener);
-        var transaction = new CardTransaction(dateTimeProvider.getZonedDateTime(), amount, cardTransactionType);
+        var transaction = new CardTransaction(new CardTransactionId(), dateTimeProvider.getZonedDateTime(), amount, cardTransactionType);
         card.registerTransaction(transaction);
         card.removeEventsListener(cardEventListener);
-        cardOperations.save(card);
+        cardRepository.save(card);
     }
 
     private Consumer<CardTransactionRegisteredEvent> createCardEventListener() {

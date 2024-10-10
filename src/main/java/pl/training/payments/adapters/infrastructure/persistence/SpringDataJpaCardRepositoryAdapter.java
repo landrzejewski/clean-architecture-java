@@ -3,15 +3,14 @@ package pl.training.payments.adapters.infrastructure.persistence;
 import pl.training.common.model.PageSpec;
 import pl.training.common.model.ResultPage;
 import pl.training.payments.adapters.common.annotations.Adapter;
+import pl.training.payments.application.infrastructure.CardRepository;
 import pl.training.payments.domain.Card;
 import pl.training.payments.domain.CardNumber;
-import pl.training.payments.application.infrastructure.CardOperations;
-import pl.training.payments.application.infrastructure.CardQueries;
 
 import java.util.Optional;
 
 @Adapter
-public final class SpringDataJpaCardRepositoryAdapter implements CardQueries, CardOperations {
+public final class SpringDataJpaCardRepositoryAdapter implements CardRepository {
 
     private final SpringDataJpaCardRepository repository;
     private final SpringDataJpaCardRepositoryMapper mapper;
