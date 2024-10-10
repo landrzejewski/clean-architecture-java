@@ -1,5 +1,6 @@
 package pl.training.payments.adapters.rest;
 
+import jakarta.validation.constraints.Min;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -43,7 +44,7 @@ final class AddCardTransactionRestController {
 
 }
 
-record AddCardTransactionRequest(Double amount, String currencyCode, String type) {
+record AddCardTransactionRequest(@Min(100) Double amount, String currencyCode, String type) {
 
     Money money() {
         var currency = Currency.getInstance(currencyCode);
