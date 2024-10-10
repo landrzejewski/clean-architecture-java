@@ -26,9 +26,9 @@ public final class ReadCardRestController {
     @GetMapping("{number:\\d{16,19}}")
     public ResponseEntity<CardDto> getCard(@PathVariable final String number) {
         var cardNumber = mapper.toDomain(number);
-        var transactions = getCardUseCase.getCard(cardNumber);
-        var transactionsDtos = mapper.toDto(transactions);
-        return ResponseEntity.ok(transactionsDtos);
+        var card = getCardUseCase.getCard(cardNumber);
+        var cardDto = mapper.toDto(card);
+        return ResponseEntity.ok(cardDto);
     }
 
     @GetMapping("{number:\\d{16,19}}/transactions")
